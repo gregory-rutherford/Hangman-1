@@ -46,7 +46,7 @@ function playGame() {
   //receive user input
   document.onkeyup = function(event) {
     guessesRemaining--;
-    document.getElementById("guessesRemaining").innerHTML = guessesRemaining;
+    document.getElementById("guesses").innerHTML = guessesRemaining;
     var userGuess = event.key;
     if (alphaOnly(event)) {
       checkGuess(userGuess.toLowerCase());
@@ -87,5 +87,5 @@ function playGame() {
 
   //DOM
   document.getElementById("underscores").innerHTML = underScore.join(" ");
-  document.getElementById("guessesRemaining").innerHTML = guessesRemaining;
+  document.getElementById("guesses").innerHTML = guessesRemaining;
 }
