@@ -6,14 +6,35 @@
     <title>title</title>
   </head>
   <body>
-  <script type="text/javascript" src="assets/javascript/game.js"></script>
-
+  <div class="container" id="header">
   <header>
       <h1>Snoopy Hangman</h1>
-      // use small image here
   </header>
+  <img src="assets/images/snoopycar.jpg"/>
+  </div>
 
-  
+  <div class="container" id="display">
+      <h2>Current Word: <span id="underscores"></span></h2>
+  </div>
+
+  <div class="container" >
+    <h3>Guessed Letters: <span id="guessedletters"></span></h3>
+</div>
+
+<div class="container" id="remaining">
+    <h3>Guesses Remaining: <span id="guessesRemaining"></span></h3>
+</div>
+
+ <div class="container" id="wins">
+   <h2>Wins: </h2>
+ </div>
+ <div id= "losses">
+   <h2>Losses: </h2>
+ </div>
+
+ 
+
+ <script type="text/javascript" src="assets/javascript/thirdattempt.js"></script>
 
   </body>
 </html>

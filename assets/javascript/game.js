@@ -1,40 +1,52 @@
+//create answer array
 var answers = ["linus", "joecool", "charlesschulz", "woodstock", "olaf"];
-var correctAnswer = Array.from(answers[Math.floor(Math.random() * answers.length)]);
+//create array for gussed letters to be stored in
 var guessedLetters = [];
-console.log(correctAnswer);
+//create an array for incorrect letters to be stored in
 var incorrectLetters = [];
+//create an array for correct letters to be stored in
 var correctLetters = [];
+//create an array for underscores based on the length of the string to be stored in
+var underScore = [];
+// maximum number of tries per word
+const maxTries = 6;
+
+// choose a random word from answers array and pass it into new array called correcAnswer
+var correctAnswer = Array.from(answers[Math.floor(Math.random() * answers.length)]);
+console.log(correctAnswer);
 
 
+//Dom Manipulation
+var docUnderScore = document.getElementById("underscore");
 
+// push underscores into the spaces of each letter
+generateUnderscore();
+function generateUnderscore () {
+    for (var i = 0; i < correctAnswer.length; i++) {
+        underScore.push("_");
+    }    
+}
 
+//obatin user guess
 document.addEventListener('keyup', function (event) {
     // guessedLetters.push(event.key);
     var currentGuess = event.key;
     findMatchingLetter(currentGuess);
     });
 
-
-//loop through the string produced by correctAnswer and if a key matches a character 
-//of the correctAnswer,
-//display on blank line, else display on incorrect guesses div 
-
+//check if guess is right or wrong, take right or wrong guess and store in array
 function findMatchingLetter(currentGuess) {
     // console.log(currentGuess);
     for (let i = 0; i < correctAnswer.length; i++) {
-        console.log(correctAnswer[i], currentGuess);
-        if (correctAnswer[i] === currentGuess) {
-            correctLetters.push(currentGuess);
-            //place the correct letter 
+        // console.log(correctAnswer[i], currentGuess);
+        if (correctAnswer[i] === currentGuess) {            
             break
-        } 
-        incorrectLetters.push(currentGuess);
+        } else (correctAnswer[i] !== currentGuess) ;{
+         console.log("not a match")
+        }
     }
-    console.log(answerIsCorrect);
 }
 
-//if current guess is equal to correct answer, take current guess and display 
-// the guess, need to "lock" the guess so that it doesnt keep going or display
-//it in the wrong guesses array
+
 
 // String.join to switch back to string from array!
