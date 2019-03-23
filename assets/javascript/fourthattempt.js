@@ -9,8 +9,11 @@ var losses = 0;
 
 game();
 function game() {
+    writeToDom();
     keyHandler();
     wordGenerator();
+    console.log(randomWord)
+
     generateUnderscore();
 }
 function keyHandler() {
@@ -18,27 +21,34 @@ function keyHandler() {
         letterOrNumberCheck(event);
         wrongRight();
         writeToDom();
-        // if (underScore.includes("_") === false) {
-        //     //   alert("YOU WIN!");
-        //     wins++;
-        //     document.getElementById("youWin").textContent = "YOU WIN!";
-        //     setTimeout(reset, 3000);
-        // }
-        // if (guessesRemaining === 0) {
-        //     losses++;
-        //     //RESET TIME  
-        //     document.getElementById("youLose").textContent = "YOU LOSE. Try again please!";
-        //     setTimeout(reset, 3000);
-        // }
+        winLose();
     });
+}
+
+function winLose() {
+    if (underScore.includes("_") === false) {
+        //   alert("YOU WIN!");
+        wins++;
+        document.getElementById("wins").textContent = wins;
+        reset();
+        // document.getElementById("youWin").textContent = "YOU WIN!";
+        // setTimeout(reset, 3000);
+    }
+    if (guessesRemaining === 0) {
+        losses++;
+        document.getElementById("losses").textContent = losses;
+        reset();
+        //RESET TIME  
+        // document.getElementById("youLose").textContent = "YOU LOSE. Try again please!";
+        //     setTimeout(reset, 3000);
+    }
 }
 
 function writeToDom() {
     document.getElementById("underscores").textContent = underScore.join(" ");
     document.getElementById("guessedletters").textContent = wrongGuess.join(" ");
     document.getElementById("guesses").textContent = guessesRemaining;
-    document.getElementById("wins").textContent = wins;
-    document.getElementById("losses").textContent = losses;
+
 }
 
 function wrongRight() {
@@ -50,9 +60,8 @@ function wrongRight() {
         }         
     }  
     if (correctGuess === false) {
-        console.log(false);
-        wrongGuess.push(currentGuess);
         guessesRemaining--;
+        wrongGuess.push(currentGuess);
         }
 }
 
@@ -79,14 +88,15 @@ function wordGenerator() {
     randomWord = Array.from(wordBank[Math.floor(Math.random() * wordBank.length)].toLowerCase());
 }
 
-// function reset() {
-//     document.getElementById("youLose").textContent = "";
-//     document.getElementById("youWin").textContent = "";
-//     document.getElementById("guessedletters").textContent = "";
-//     guessesRemaining = 5;
-//     underScore = [];
-//     wrongGuess = [];
-//     wordGenerator();
-//     game();
-// };
+function reset() {
+    document.getElementById("youLose").textContent = "";
+    document.getElementById("youWin").textContent = "";
+    document.getElementById("guessedletters").textContent = "";
+    underScore = [];
+    wrongGuess = [];
+    guessesRemaining = 5;
+    wordGenerator();
+    generateUnderscore();
+    writeToDom();
+};
 
