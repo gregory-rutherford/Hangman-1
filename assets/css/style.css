@@ -1,0 +1,72 @@
+* {
+  margin: 0;
+}
+.wrapper {
+  flex-flow: row wrap;
+  font-weight: bold;
+  text-align: center;
+  font-family: "Sriracha", cursive;
+}
+
+#youWin,
+#youLose {
+  font-size: 60px;
+}
+
+h2 {
+    margin-bottom: 15px;
+}
+
+h3 {
+    margin-bottom: 8px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+.tophead {
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  background-image: url(../images/gradient.png);
+}
+
+header {
+  width: 100%;
+}
+h1 {
+  margin-bottom: 0;
+  font-size: 80px;
+}
+img {
+  width: 125px;
+  height: 125px;
+  border-radius: 50%;
+}
+hr {
+  border: none;
+}
+.game {
+  font-size: 30px;
+  border: 1px black;
+  background: papayawhip;
+}
+
+@media all and (min-width: 800px) {
+  .game {
+    flex: 3 0px;
+  }
+  .aside-1 {
+    order: 1;
+  }
+  .game {
+    order: 2;
+  }
+  .aside-2 {
+    order: 3;
+  }
+  .footer {
+    order: 4;
+  }
+}

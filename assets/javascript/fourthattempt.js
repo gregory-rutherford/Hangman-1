@@ -1,4 +1,4 @@
-// random word is choosen
+// Global Variables
 var underScore = [];
 var wrongGuess = [];
 var randomWord;
@@ -6,16 +6,16 @@ var currentGuess;
 var guessesRemaining = 5;
 var wins = 0;
 var losses = 0;
-
+// game function calls DOM manipulation, gather input, pick a word and fill an array with underscores to represent the word
 game();
 function game() {
     writeToDom();
     keyHandler();
     wordGenerator();
     console.log(randomWord)
-
     generateUnderscore();
 }
+
 function keyHandler() {
     document.addEventListener("keyup", function (event) { 
         letterOrNumberCheck(event);
@@ -27,20 +27,18 @@ function keyHandler() {
 
 function winLose() {
     if (underScore.includes("_") === false) {
-        //   alert("YOU WIN!");
+        document.getElementById("youWin").textContent = ("You Win!")
+        document.getElementById("thanks").textContent = ("Thanks for playing, Press any letter key to play again!")
         wins++;
         document.getElementById("wins").textContent = wins;
         reset();
-        // document.getElementById("youWin").textContent = "YOU WIN!";
-        // setTimeout(reset, 3000);
     }
     if (guessesRemaining === 0) {
+        document.getElementById("youLose").textContent = ("You Lose!")
+        document.getElementById("thanks").textContent = ("Thanks for playing, Press any letter key to play again!")
         losses++;
         document.getElementById("losses").textContent = losses;
         reset();
-        //RESET TIME  
-        // document.getElementById("youLose").textContent = "YOU LOSE. Try again please!";
-        //     setTimeout(reset, 3000);
     }
 }
 
@@ -72,6 +70,10 @@ function letterOrNumberCheck(event) {
     else {
         alert("please enter a letter or number");
     }
+    document.getElementById("youWin").textContent = "";
+    document.getElementById("youLose").textContent = "";
+    document.getElementById("thanks").textContent = "";
+
 }
 
 function generateUnderscore() {
@@ -79,18 +81,15 @@ function generateUnderscore() {
         underScore.push("_");
     }
     document.getElementById("underscores").textContent = underScore.join(" ");
-
 }
 
 
 function wordGenerator() {
-    var wordBank = ["linus", "lucy", "olaf", "woodstock"];
+    var wordBank = ["linus", "lucy", "olaf", "woodstock", "franklin", "pigpen", "marcy"];
     randomWord = Array.from(wordBank[Math.floor(Math.random() * wordBank.length)].toLowerCase());
 }
 
 function reset() {
-    document.getElementById("youLose").textContent = "";
-    document.getElementById("youWin").textContent = "";
     document.getElementById("guessedletters").textContent = "";
     underScore = [];
     wrongGuess = [];
