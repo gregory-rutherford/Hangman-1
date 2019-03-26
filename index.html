@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Snoopy Word Guess Game</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Sriracha"
+      rel="stylesheet"
+    />
+    <!-- favicon -->
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="favicon_package_v0.16/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="favicon_package_v0.16/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="favicon_package_v0.16/favicon-16x16.png"
+    />
+    <link rel="manifest" href="favicon_package_v0.16/site.webmanifest" />
+    <link
+      rel="mask-icon"
+      href="favicon_package_v0.16/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="theme-color" content="#ffffff" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div class="tophead">
+        <header>
+          <h1>Snoopy Hangman</h1>
+          <img src="assets/images/snoopyquestion.jpg" />
+        </header>
+        <!-- <img src="assets/images/snoopycar.jpg" /> -->
+      </div>
+      <hr />
+      <div class="game">
+        <div class="container" id="display">
+          <h2>Current Word: <span id="underscores"></span></h2>
+        </div>
+
+        <div class="container">
+          <h3>Guessed Letters: <span id="guessedletters"></span></h3>
+        </div>
+
+        <div class="container">
+          <h3>Guesses Remaining: <span id="guesses"></span></h3>
+        </div>
+
+        <div class="container">
+          <h2>Wins: <span id="wins"></span></h2>
+        </div>
+
+        <div class="container">
+          <h2>Losses: <span id="losses"></span></h2>
+        </div>
+
+        <div class="alerts">
+          <div id="youWin"></div>
+
+          <div id="youLose"></div>
+        </div>
+        <footer id="thanks"></footer>
+      </div>
+    </div>
+    <script
+      type="text/javascript"
+      src="assets/javascript/fourthattempt.js"
+    ></script>
+  </body>
+</html>
